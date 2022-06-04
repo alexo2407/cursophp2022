@@ -23,5 +23,12 @@
      </button>
      <strong>El documento fue guardado correctamente</strong> 
    </div>
+   <?php } else if($_GET['mensaje'] == "borrado") { ?>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+       <span aria-hidden="true">&times;</span>
+     </button>
+     <strong>El documento fue borrado satisfactoriamente</strong> 
+   </div>
    <?php } } ?>
 

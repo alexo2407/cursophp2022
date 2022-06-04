@@ -1,4 +1,10 @@
+<?php 
+//incluimos la clase controller
+require_once "imagenController.php";
+//incluimos las clases del modelo
+require_once "imagenModel.php";
 
+?>
 
 
 <!doctype html>
@@ -59,7 +65,8 @@
       height: 100%;
     }
     .img-thumbnail {
-      width: 200px;
+      object-fit: cover;
+    
       height: 200px;
     }
 
@@ -78,7 +85,17 @@
 
   <div class="container">
     <div class="col-12 text-center">
-      <?php include "include/helper.php";  ?>
+     
+      <?php 
+      //instanciamos la clase del controlador
+      $subirImagen = new ImagenController();
+      $subirImagen->subirImagenController();
+      $borrarImagen = new ImagenController();
+      $borrarImagen->borrarImagenesController();
+      //muestra los mensajes de validaciones
+       include "include/helper.php"; 
+      
+      ?>
       <hr>
     </div>
   </div>
@@ -87,7 +104,7 @@
     <div class="col fondo">
       <h3 class="h3 text-center">Documento</h3>
 
-      <form method="POST" enctype="multipart/form-data" action="upload.php">
+      <form method="POST" enctype="multipart/form-data">
         <div class="input-group mb-3">
           <div class="custom-file">
             <input type="file" class="custom-file-input" name="file" id="file">
@@ -107,6 +124,26 @@
         <div class="col-12">
         <p>Curso desarrollo web con PHP</p>
         </div>
+
+        <?php 
+      //instanciamos la clase del controlador
+      $MostrarImagen = new ImagenController();
+      $resultadoMostrarImagen= $MostrarImagen->mostrarImagenesController();
+
+    //  var_dump($resultadoMostrarImagen); 
+      
+      foreach ($resultadoMostrarImagen as $key => $value) {
+        echo '<div class="col-md-2">
+        <a href="index.php?idBorrar='.$value['id'].'&image='.$value['url'].'" class="btn btn-danger" style="position:absolute"> X</a>
+        <img src="'.$value['url'].'" alt="" class="img-thumbnail img-fluid">
+      </div>';
+      }
+     
+      
+      ?>
+
+
+      
        
         
       </div>
