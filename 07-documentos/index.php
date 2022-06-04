@@ -140,8 +140,7 @@ require_once "imagenModel.php";
         }
 
         ?>
-
-
+        <!-- agregando algo al git -->
       </div>
     </div>
   </footer>
