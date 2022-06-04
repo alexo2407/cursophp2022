@@ -78,18 +78,7 @@
 
   <div class="container">
     <div class="col-12 text-center">
-    
-     <div class="alert alert-warning alert-dismissible fade show" role="alert">
-       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-         <span aria-hidden="true">&times;</span>
-       </button>
-       <strong>Error archivo grande</strong> 
-     </div>
-     
-     <script>
-       $(".alert").alert();
-     </script>
-
+      <?php include "include/helper.php";  ?>
       <hr>
     </div>
   </div>
