@@ -1,4 +1,4 @@
-<?php 
+<?php
 //incluimos la clase controller
 require_once "imagenController.php";
 //incluimos las clases del modelo
@@ -18,7 +18,7 @@ require_once "imagenModel.php";
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700|Raleway:400,700" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/fontawesome.min.css" integrity="sha512-KVdV5HNnN1f6YOANbRuNxyCnqyPICKUmQusEkyeRg4X0p8K1xCdbHs32aA7pWo6WqMZk0wAzl29cItZh8oBPYQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  
+
   <style>
     :root {
       --fuentePrimaria: 'Playfair Display', serif;
@@ -64,12 +64,12 @@ require_once "imagenModel.php";
       width: 800px;
       height: 100%;
     }
+
     .img-thumbnail {
       object-fit: cover;
-    
+
       height: 200px;
     }
-
   </style>
 
 </head>
@@ -85,16 +85,16 @@ require_once "imagenModel.php";
 
   <div class="container">
     <div class="col-12 text-center">
-     
-      <?php 
+
+      <?php
       //instanciamos la clase del controlador
       $subirImagen = new ImagenController();
       $subirImagen->subirImagenController();
       $borrarImagen = new ImagenController();
       $borrarImagen->borrarImagenesController();
       //muestra los mensajes de validaciones
-       include "include/helper.php"; 
-      
+      include "include/helper.php";
+
       ?>
       <hr>
     </div>
@@ -119,33 +119,29 @@ require_once "imagenModel.php";
 
   <footer class="footer">
     <div class="container mt-4 py-4">
-   
+
       <div class="row  text-center">
         <div class="col-12">
-        <p>Curso desarrollo web con PHP</p>
+          <p>Curso desarrollo web con PHP</p>
         </div>
 
-        <?php 
-      //instanciamos la clase del controlador
-      $MostrarImagen = new ImagenController();
-      $resultadoMostrarImagen= $MostrarImagen->mostrarImagenesController();
+        <?php
+        //instanciamos la clase del controlador
+        $MostrarImagen = new ImagenController();
+        $resultadoMostrarImagen = $MostrarImagen->mostrarImagenesController();
 
-    //  var_dump($resultadoMostrarImagen); 
-      
-      foreach ($resultadoMostrarImagen as $key => $value) {
-        echo '<div class="col-md-2">
-        <a href="index.php?idBorrar='.$value['id'].'&image='.$value['url'].'" class="btn btn-danger" style="position:absolute"> X</a>
-        <img src="'.$value['url'].'" alt="" class="img-thumbnail img-fluid">
+        //var_dump($resultadoMostrarImagen); 
+
+        foreach ($resultadoMostrarImagen as $key => $value) {
+          echo '<div class="col-md-2">
+        <a href="index.php?idBorrar=' . $value['id'] . '&image=' . $value['url'] . '" class="btn btn-danger" style="position:absolute"> X</a>
+        <img src="' . $value['url'] . '" alt="" class="img-thumbnail img-fluid">
       </div>';
-      }
-     
-      
-      ?>
+        }
+
+        ?>
 
 
-      
-       
-        
       </div>
     </div>
   </footer>
